@@ -17,18 +17,10 @@ class DialogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_activity_dialog)
-//        val myFadeInAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.tween)
-//        btnShowDialog.animation = myFadeInAnimation
-//        btnShowDialog.animate().alpha(1f).duration = 300000
         btnShowDialog.alpha = 1f
         btnShowDialog.animate().alpha(0F).duration = 500
         btnShowDialog.visibility = View.GONE
-
-//        btnShowDialog.alpha = 0f
-//        btnShowDialog.visibility = View.VISIBLE
-//        btnShowDialog.animate().alpha(1F).duration = 500
         btnShowDialog.setOnClickListener {
-//            showNormalDialog()
             showFreedBackDialog()
         }
     }
