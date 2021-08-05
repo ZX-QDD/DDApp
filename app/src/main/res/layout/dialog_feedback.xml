@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_gravity="center"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_with_10dp">
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:background="?selectableItemBackground"
+        android:paddingStart="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:text="取消"
+        android:textColor="#878792"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="您离开本次直播课的原因是?"
+        android:textColor="@color/dd_font_static_primary"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/send"
+        android:textSize="14sp"
+        android:text="提交"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:background="?selectableItemBackground"
+        android:enabled="false"
+        android:paddingStart="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:textColor="#22B96E"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:itemCount="3"
+        tools:listitem="@layout/dialog_item_feedback" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="DDAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/gray_middle</item>
+        <item name="colorAccent">@color/green</item>
+        <item name="android:textColorPrimary">@color/fc_sub</item>
+        <!--禁止多点触控-->
+        <!--控制多点触控，不需要多点触控的界面设置禁用多点触控，保证一次点击事件只传递到一个View。-->
+        <!--设置 windowEnableSplitTouch(控制Window之间的)-->
+        <!--设置 splitMotionEvents(控制ViewGroup中的View)-->
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:windowBackground">@color/bg_gray</item>
+    </style>
+
+</resources>

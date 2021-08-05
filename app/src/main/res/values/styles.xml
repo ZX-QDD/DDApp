@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/green</item>
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="android:windowBackground">@drawable/bg_white_with_4dp</item>
+        <item name="android:windowMinWidthMajor">65%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="FeedbackDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowMinWidthMajor">65%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+    </style>
+
+
+    <style name="FeedbackRatingBar">
+        <item name="android:progressDrawable">@drawable/feedback_ratingbar</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:stepSize">1</item>
+        <item name="android:isIndicator">false</item>
+        <item name="android:numStars">5</item>
+    </style>
+
+</resources>
