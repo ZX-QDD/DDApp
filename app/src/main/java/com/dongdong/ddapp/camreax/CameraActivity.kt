@@ -1,6 +1,8 @@
 package com.dongdong.ddapp.camreax
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +14,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dongdong.ddapp.R
+import com.dongdong.ddapp.baidumap.BaiduMapActivity
 import kotlinx.android.synthetic.main.activity_cramera.*
 import java.io.File
 import java.text.SimpleDateFormat
@@ -142,6 +145,10 @@ class CameraActivity : AppCompatActivity() {
         private const val FILENAME_FORMAT = "yyyy-MM-dd-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+
+        fun launch(context: Context) {
+            context.startActivity(Intent(context, CameraActivity::class.java))
+        }
     }
 
 }

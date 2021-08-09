@@ -1,13 +1,13 @@
-package com.dongdong.ddapp.dialoglearn.dialog
+package com.dongdong.ddapp.dialog.dialogs
 
 import com.dongdong.ddapp.R
 import android.app.Activity
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dongdong.ddapp.dialoglearn.adapter.FeedbackAdapter
-import com.dongdong.ddapp.dialoglearn.adapter.FeedbackItemClickCallback
-import com.dongdong.ddapp.dialoglearn.bind
+import com.dongdong.ddapp.dialog.adapter.FeedbackAdapter
+import com.dongdong.ddapp.dialog.adapter.FeedbackItemClickCallback
+import com.dongdong.ddapp.dialog.bind
 
 class FeedbackDialog(
     activity: Activity,

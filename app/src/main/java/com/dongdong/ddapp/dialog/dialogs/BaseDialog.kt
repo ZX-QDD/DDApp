@@ -1,4 +1,4 @@
-package com.dongdong.ddapp.dialoglearn.dialog
+package com.dongdong.ddapp.dialog.dialogs
 
 import android.app.Activity
 import android.app.Dialog

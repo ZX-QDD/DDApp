@@ -71,6 +71,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
         tools:itemCount="3"
-        tools:listitem="@layout/dialog_item_feedback" />
+        tools:listitem="@layout/item_dialog_feedback" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

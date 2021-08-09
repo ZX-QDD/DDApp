@@ -25,20 +25,17 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="6He34Plh2wiBDs7OIv98kGIu7RysRYLs" />
 
-        <activity android:name=".dialoglearn.DialogActivity">
+        <activity android:name=".dialog.DialogActivity"></activity>
+        <activity android:name=".baidumap.BaiduMapActivity" />
+        <activity android:name=".recycle.SomeDataListActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".baidumap.BaiduMapActivity" />
-        <activity android:name=".recycle.SomeDataListV2Activity" />
-        <activity android:name=".recycle.SomeDataListActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize">
-
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.dongdong.ddapp.dialoglearn.adapter
+package com.dongdong.ddapp.dialog.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -23,7 +23,7 @@ class FeedbackAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedbackViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.dialog_item_feedback, parent, false)
+            .inflate(R.layout.item_dialog_feedback, parent, false)
         return FeedbackViewHolder(view)
     }
 

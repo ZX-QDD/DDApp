@@ -16,13 +16,4 @@
         <item name="android:windowMinWidthMinor">100%</item>
     </style>
 
-
-    <style name="FeedbackRatingBar">
-        <item name="android:progressDrawable">@drawable/feedback_ratingbar</item>
-        <item name="android:layout_marginRight">15dp</item>
-        <item name="android:stepSize">1</item>
-        <item name="android:isIndicator">false</item>
-        <item name="android:numStars">5</item>
-    </style>
-
 </resources>

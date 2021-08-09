@@ -1,254 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_feedback_fragment">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
+        android:id="@+id/btn_goto_dialog"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_green_with_28dp"
+        android:text="@string/go_to_dialog"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/viewFinishCourse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="20dp"
-            android:paddingTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <Button
+        android:id="@+id/btn_goto_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_green_with_28dp"
+        android:text="@string/go_to_recycle"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btn_goto_dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/tvFinishCourse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="恭喜完成课程"
-                android:textColor="@color/white"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/btn_goto_baidumap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_green_with_28dp"
+        android:text="@string/go_to_baidu_map"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btn_goto_recycle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/tvScore"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                android:text="请对本课堂进行打分，帮助我们更好的优化您的学习体验"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvFinishCourse" />
+    <Button
+        android:id="@+id/btn_goto_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_green_with_28dp"
+        android:text="@string/go_to_camera"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btn_goto_baidumap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Space
-            android:id="@+id/spaceInsect"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewFinishCourse" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/viewStarRank"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:clipChildren="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spaceInsect">
-
-            <TextView
-                android:id="@+id/tvTeacher"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:includeFontPadding="false"
-                android:text="老师满意度 *"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <RatingBar
-                android:id="@+id/teacherRateView"
-                style="@style/FeedbackRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="16dp"
-                android:isIndicator="false"
-                android:rating="0"
-                app:layout_constraintBottom_toBottomOf="@+id/tvTeacher"
-                app:layout_constraintStart_toEndOf="@+id/tvTeacher"
-                app:layout_constraintTop_toTopOf="@+id/tvTeacher" />
-
-            <TextView
-                android:id="@+id/tvDifficulty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:includeFontPadding="false"
-                android:text="难易合适度 *"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTeacher" />
-
-            <RatingBar
-                android:id="@+id/difficultyRateView"
-                style="@style/FeedbackRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="16dp"
-                android:isIndicator="false"
-                android:rating="0"
-                app:layout_constraintBottom_toBottomOf="@+id/tvDifficulty"
-                app:layout_constraintStart_toEndOf="@+id/tvDifficulty"
-                app:layout_constraintTop_toTopOf="@+id/tvDifficulty" />
-
-            <TextView
-                android:id="@+id/tvContent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:includeFontPadding="false"
-                android:text="内容实用度 *"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDifficulty" />
-
-            <RatingBar
-                android:id="@+id/contentRateView"
-                style="@style/FeedbackRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="16dp"
-                android:isIndicator="false"
-                android:rating="0"
-                app:layout_constraintBottom_toBottomOf="@+id/tvContent"
-                app:layout_constraintStart_toEndOf="@+id/tvContent"
-                app:layout_constraintTop_toTopOf="@+id/tvContent" />
-
-            <TextView
-                android:id="@+id/tvPlatform"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:includeFontPadding="false"
-                android:text="平台稳定性 *"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvContent" />
-
-            <RatingBar
-                android:id="@+id/platformRateView"
-                style="@style/FeedbackRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="16dp"
-                android:isIndicator="false"
-                android:rating="0"
-                app:layout_constraintBottom_toBottomOf="@+id/tvPlatform"
-                app:layout_constraintStart_toEndOf="@+id/tvPlatform"
-                app:layout_constraintTop_toTopOf="@+id/tvPlatform" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/viewFeedbackContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewStarRank">
-
-            <TextView
-                android:id="@+id/tvMore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                android:text="更多反馈"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/etInput"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/feedback_edit_15dp_radius"
-                android:gravity="top"
-                android:hint="请输入内容"
-                android:paddingStart="10dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="5dp"
-                android:scrollbarStyle="insideInset"
-                android:scrollbars="vertical"
-                android:textColor="@color/white"
-                android:textColorHint="#99EBEBF5"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvMore" />
-
-            <TextView
-                android:id="@+id/tvInputNum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="top"
-                android:text="0/200"
-                android:textColor="#99EBEBF5"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/etInput"
-                app:layout_constraintEnd_toEndOf="@+id/etInput" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/selector_button_border_28dp"
-            android:text="提交"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewFeedbackContent"
-            tools:visibility="visible" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

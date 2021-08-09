@@ -1,10 +1,10 @@
-package com.dongdong.ddapp.dialoglearn
+package com.dongdong.ddapp.dialog
 
 import android.app.Dialog
 import android.os.Build
 import android.view.*
 import androidx.annotation.IdRes
-import com.dongdong.ddapp.dialoglearn.dialog.BaseDialog
+import com.dongdong.ddapp.dialog.dialogs.BaseDialog
 
 fun BaseDialog.showOnBottom() {
     showOnBottom(ViewGroup.LayoutParams.WRAP_CONTENT)

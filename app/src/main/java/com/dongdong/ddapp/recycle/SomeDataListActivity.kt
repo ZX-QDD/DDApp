@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import com.dongdong.ddapp.R
 import com.dongdong.ddapp.utils.dpToPx
-import kotlinx.android.synthetic.main.recycle_activity_some_data_list.*
+import kotlinx.android.synthetic.main.activity_some_data_list.*
 
 class SomeDataListActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class SomeDataListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.recycle_activity_some_data_list)
+        setContentView(R.layout.activity_some_data_list)
         recyclerView.adapter = someDataAdapter
         initData()
     }
@@ -48,10 +48,10 @@ class SomeDataListActivity : AppCompatActivity() {
 
             override fun showItem(id: Int, title: String) {
                 //打点
-                Log.e("====", "$id+++$title")
+                Log.e(TAG, "id-->$id title-->$title")
             }
 
-            //到达一定高度改变导航栏颜色
+            //滑动一定距离改变导航栏颜色
             override fun applyNavigation(dy: Int) {
                     scrollY += dy
                     if (scrollY > SMALL_SPACE) {

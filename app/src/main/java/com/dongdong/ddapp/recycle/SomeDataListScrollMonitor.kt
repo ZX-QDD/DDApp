@@ -8,7 +8,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dongdong.ddapp.utils.DisplayUtil
+import android.content.res.Resources
 import com.dongdong.ddapp.utils.toDp
 import java.lang.Exception
 import kotlin.math.abs
@@ -21,7 +21,7 @@ import kotlin.math.abs
 class SomeDataListScrollMonitor : RecyclerView.OnScrollListener(), LifecycleObserver{
     private var recyclerView: RecyclerView? = null
     private var lastScrollTime: Long = 0
-    private var vs2Log: SomeDataListUmsCallback? = null
+    private var callback: SomeDataListUmsCallback? = null
     private var someDataList: ArrayList<SomeData>? = null
 
     private val showedModuleIndexList = arrayListOf<Int>()
@@ -31,8 +31,8 @@ class SomeDataListScrollMonitor : RecyclerView.OnScrollListener(), LifecycleObse
         private const val TAG = "SomeDataListScrollMonitor"
     }
 
-    fun bind(recyclerView: RecyclerView, someDataList: ArrayList<SomeData>, lifecycle: Lifecycle, onVS2Log: SomeDataListUmsCallback) {
-        this.vs2Log = onVS2Log
+    fun bind(recyclerView: RecyclerView, someDataList: ArrayList<SomeData>, lifecycle: Lifecycle, callback: SomeDataListUmsCallback) {
+        this.callback = callback
         this.recyclerView = recyclerView
         this.someDataList = someDataList
         recyclerView.clearOnScrollListeners()
@@ -55,7 +55,7 @@ class SomeDataListScrollMonitor : RecyclerView.OnScrollListener(), LifecycleObse
     }
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-        vs2Log?.applyNavigation(dy)
+        callback?.applyNavigation(dy)
         val time = System.currentTimeMillis() - lastScrollTime
         //横向使用dx，纵向使用dy
         val speed: Float = abs(dy.toDp() / (if (time > 0) time else 1))
@@ -86,7 +86,7 @@ class SomeDataListScrollMonitor : RecyclerView.OnScrollListener(), LifecycleObse
                 !showedModuleIndexList.contains(it)
             }.forEach {
                 someDataList?.getOrNull(it)?.let { model ->
-                    vs2Log?.showItem(model.id, model.title)
+                    callback?.showItem(model.id, model.title)
                 }
             }
 
@@ -101,7 +101,7 @@ class SomeDataListScrollMonitor : RecyclerView.OnScrollListener(), LifecycleObse
         val result = IntArray(2)
         view.getLocationOnScreen(result)
         val startX = result[0]
-        return startX < DisplayUtil.getScreenWidth() && startX >= 0 && view.isShown
+        return startX < Resources.getSystem().displayMetrics.widthPixels && startX >= 0 && view.isShown
     }
 }
 

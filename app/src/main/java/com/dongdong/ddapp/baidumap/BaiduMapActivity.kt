@@ -1,14 +1,23 @@
 package com.dongdong.ddapp.baidumap
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.baidu.mapapi.map.MapView
 import com.dongdong.ddapp.R
 
-
 class BaiduMapActivity : Activity() {
+
+    companion object {
+        val TAG = "BaiduMapActivity"
+        fun launch(context: Context) {
+            context.startActivity(Intent(context, BaiduMapActivity::class.java))
+        }
+    }
     private var mMapView: MapView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_baidu_map)
