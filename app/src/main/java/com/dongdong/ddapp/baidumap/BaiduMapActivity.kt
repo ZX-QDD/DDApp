@@ -16,6 +16,7 @@ class BaiduMapActivity : Activity() {
             context.startActivity(Intent(context, BaiduMapActivity::class.java))
         }
     }
+
     private var mMapView: MapView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

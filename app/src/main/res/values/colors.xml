@@ -6,14 +6,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="gray">#E5E5EA</color>
-
-
-    <color name="green">#0BCDAD</color>
-    <color name="gray_middle">#E0E4EB</color>
 
     <color name="fc_dark">#202020</color>
     <color name="fc_dft">#575962</color>
@@ -21,9 +15,35 @@
     <color name="fc_tip">#cbcccd</color>
     <color name="fc_red">#da2b2b</color>
 
-    <color name="bg_gray">#E5E5E5</color>
-
     <color name="dd_font_static_primary">#000000</color>
     <color name="dd_font_black">#1C1C1E</color>
+
+    <color name="activity_blue">#1B9CFD</color>
+    <color name="correct_green">#52CE67</color>
+    <color name="wrong_red">#F34646</color>
+    <color name="tip">#B8BDC9</color>
+    <color name="sub">#788295</color>
+    <color name="dft">#202B43</color>
+    <color name="gray_dark">#A6AEBA</color>
+    <color name="gray_middle">#E0E4EB</color>
+    <color name="gray_light">#F1F3F5</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFAC32</color>
+    <color name="yellow_light">#FFDD4E</color>
+    <color name="green">#0BCDAD</color>
+    <color name="blue">#7FAFFF</color>
+    <color name="blue_dark">#305692</color>
+    <color name="blue_light">#4FDCF6</color>
+    <color name="red">#EC426E</color>
+    <color name="red_light">#FF7878</color>
+    <color name="dark">#282A37</color>
+    <color name="purple">#633CBC</color>
+    <color name="purple_light">#C6A2FF</color>
+    <color name="golden">#FFDDB2</color>
+    <color name="font_golden">#C37D3C</color>
+    <color name="font_gray">#D6DADF</color>
+    <color name="font_gray1">#99EBEBF5</color>
+    <color name="bg_gray">#E5E5E5</color>
 
 </resources>

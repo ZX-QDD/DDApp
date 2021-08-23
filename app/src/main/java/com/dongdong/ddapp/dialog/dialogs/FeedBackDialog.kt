@@ -31,29 +31,11 @@ class FeedbackDialog(
         rvOptions.layoutManager = layoutManager
         rvOptions.adapter = adapter
         adapter.setData(data)
-
-//        val disposable = DWApi.getPecadoService(QuitFeedbackApi::class.java)
-//            .getResearch()
-//            .observeOn(DWSchedulers2.main())
-//            .subscribe({ model ->
-//                val options = model.options ?: mutableListOf()
-//                adapter.setData(model.options ?: emptyList())
-//                sendButton.text = model.submitTitle ?: ""
-//                Log.d(TAG, "succeed fetch config")
-//            }, {
-//                Log.d(TAG, "error fetch config")
-//            })
         cancelButton.setOnClickListener {
             dismiss()
         }
         sendButton.setOnClickListener {
             dismiss()
-//            Observable.timer(300, TimeUnit.MILLISECONDS)
-//                .observeOn(DWSchedulers.main())
-//                .subscribe {
-//                    activity.finish()
-//                    dismiss()
-//                }
         }
     }
 
