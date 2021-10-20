@@ -3,6 +3,8 @@
 
     <string name="dialog_show_normal">弹出普通弹窗</string>
     <string name="dialog_show_feedback">弹出反馈弹窗</string>
+    <string name="dialog_show_bind_phone">弹出手机绑定弹窗</string>
+
 
     <string name="go_to_dialog">Go to Dialog</string>
     <string name="go_to_recycle">Go to Recycle</string>
@@ -12,4 +14,7 @@
     <string name="go_to_rating">Go to Rating</string>
     <string name="go_to_test">Go to Test</string>
 
+    <string name="dialog_bind_phone_title">绑定手机号</string>
+    <string name="dialog_bind_phone_content">为了更好的享用本App服务，\n请先绑定手机号</string>
+    <string name="dialog_bind_phone_btn">立即绑定</string>
 </resources>

@@ -30,4 +30,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/btnShoBindPhoneDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_green_with_28dp"
+        android:text="@string/dialog_show_bind_phone"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btnShowFeedbackDialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

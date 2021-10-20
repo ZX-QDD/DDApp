@@ -16,11 +16,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:starCount="5"
-        app:starEmpty="@drawable/darwin_ic_star_gray"
-        app:starFill="@drawable/darwin_ic_star_yellow"
+        app:starEmpty="@drawable/rating_ic_star_gray"
+        app:starFill="@drawable/rating_ic_star_yellow"
         app:starImageSize="40dp"
         app:starPadding="20dp"
         app:starStep="2"
         app:stepSize="Full" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <TextView
+            android:id="@+id/user_study_progress_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_margin="30dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnShoBindPhoneDialog"
+            tools:text="通过你的努力学习，进度超过了同学，加油保持！" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
