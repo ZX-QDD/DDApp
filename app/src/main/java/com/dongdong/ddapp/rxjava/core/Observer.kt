@@ -1,6 +1,9 @@
-package com.dongdong.ddapp.rxjava.mythink
+package com.dongdong.ddapp.rxjava.core
 
-interface TObserver<T> {
+/**
+ * 观察者（下游）
+ */
+interface Observer<T> {
 
     fun onSubscribe()
 

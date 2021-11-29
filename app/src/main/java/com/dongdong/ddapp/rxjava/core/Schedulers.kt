@@ -33,8 +33,8 @@ class Schedulers {
     }
 
     fun <T> submitSubscribeWork(
-        source: DDObservableOnSubscribe<T>, //上游
-        observer: DDObserver<T>,//下游
+        source: ObservableOnSubscribe<T>, //上游
+        observer: Observer<T>,//下游
         thread: Int//指定的线程
     ) {
         when (thread) {
@@ -53,6 +53,23 @@ class Schedulers {
                 }
             }
         }
+    }
 
+    fun  submitObserverWork(function: () -> Unit,thread:Int) {
+        when(thread){
+            IO->{
+                IOThreadPool?.submit {
+                    function.invoke()
+                }
+            }
+            MAIN->{
+                handler.let {
+                    val m=Message.obtain(it){
+                        function.invoke()
+                    }
+                    it.sendMessage(m)
+                }
+            }
+        }
     }
 }

@@ -1,19 +1,19 @@
 package com.dongdong.ddapp.rxjava.core
 
-class DDMapObservable<T, R>(
-    private val source: DDObservableOnSubscribe<T>,
+class MapObservable<T, R>(
+    private val source: ObservableOnSubscribe<T>,
     private val func: (T) -> R
-) : DDObservableOnSubscribe<R> {
+) : ObservableOnSubscribe<R> {
 
-    override fun subscribe(observer: DDObserver<R>) {
-        val map = DDMapObserver(observer, func) //创建自己的观察者对象
+    override fun subscribe(observer: Observer<R>) {
+        val map = MapObserver(observer, func) //创建自己的观察者对象
         source.subscribe(map)   //将自己传递给上游
     }
 
-    class DDMapObserver<T, R>(
-        private val observer: DDObserver<R>,
+    class MapObserver<T, R>(
+        private val observer: Observer<R>,
         private val func: (T) -> R
-    ) : DDObserver<T> {
+    ) : Observer<T> {
         override fun onSubscribe() {
             observer.onSubscribe()
         }

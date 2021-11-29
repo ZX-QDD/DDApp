@@ -1,4 +1,4 @@
-package com.dongdong.ddapp.rxjava
+package com.dongdong.ddapp.rxjava.demo
 
 class Observable {
     //观察者订阅集合
