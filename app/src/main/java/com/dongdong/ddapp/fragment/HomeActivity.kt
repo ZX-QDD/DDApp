@@ -2,12 +2,12 @@ package com.dongdong.ddapp.fragment
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.dongdong.ddapp.Constants
 import com.dongdong.ddapp.R
+import com.dongdong.ddapp.base.BaseActivity
 import com.dongdong.ddapp.fragment.fragments.AddressBookFragment
 import com.dongdong.ddapp.fragment.fragments.FindFragment
 import com.dongdong.ddapp.fragment.fragments.HomeFragment
@@ -15,7 +15,7 @@ import com.dongdong.ddapp.fragment.fragments.MeFragment
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     private var lastIndex: Int = -1
     private var mFragmentsCreator = mutableListOf<Pair<String, () -> Fragment>>(
@@ -31,6 +31,8 @@ class HomeActivity : AppCompatActivity() {
         private const val LAST_INDEX = "last_index"
         fun launch(context: Context, selectTab: String = Constants.SELECT_TAB_HOME) {
             context.startActivity(Intent(context, HomeActivity::class.java).also {
+                it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 it.putExtra(HOME_SELECT_TAB, selectTab)
             })
         }
@@ -38,9 +40,19 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        initView(savedInstanceState)
+    }
+
+    override fun getLayoutId(): Int = R.layout.activity_home
+
+    private fun initView(savedInstanceState: Bundle?) {
         initBottomNavigation()
-        initHomeTab()
+        lastIndex = savedInstanceState?.getInt(LAST_INDEX) ?: -1
+        if (lastIndex == -1) {
+            initHomeTab()
+        } else {
+            resetHomeTab(lastIndex)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -63,6 +75,16 @@ class HomeActivity : AppCompatActivity() {
             Constants.SELECT_TAB_ME -> {
                 bottomNavigation.selectedItemId = R.id.menu_me
             }
+        }
+    }
+
+    private fun resetHomeTab(index: Int) {
+        Log.d(TAG, "resetHomeTab tab = $index")
+        when (index) {
+            0 -> { bottomNavigation.selectedItemId = R.id.menu_home }
+            1 -> { bottomNavigation.selectedItemId = R.id.menu_address_book }
+            2 -> { bottomNavigation.selectedItemId = R.id.menu_find }
+            3 -> { bottomNavigation.selectedItemId = R.id.menu_me }
         }
     }
 
@@ -105,5 +127,6 @@ class HomeActivity : AppCompatActivity() {
         fragmentTransaction.show(currentFragment)
         fragmentTransaction.commitAllowingStateLoss()
         lastIndex = position
+        Log.d("setFragmentPosition", "lastIndex: $lastIndex")
     }
 }

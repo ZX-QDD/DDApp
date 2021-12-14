@@ -18,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/DDAppTheme">
-        <activity android:name=".fragment.HomeActivity"></activity>
+        <activity
+            android:name=".fragment.HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light"></activity>
         <activity android:name=".dagtask.DAGTaskActivity">
         </activity>
         <activity android:name=".taskchain.TaskChainActivity"></activity>

@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_goto_home.setOnClickListener {
-            HomeActivity.launch(this, Constants.SELECT_TAB_ME)
+            HomeActivity.launch(this)
         }
     }
 }
