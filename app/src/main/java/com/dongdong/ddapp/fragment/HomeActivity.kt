@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.dongdong.ddapp.Constants
 import com.dongdong.ddapp.R
+import com.dongdong.ddapp.SelectTabType
 import com.dongdong.ddapp.base.BaseActivity
 import com.dongdong.ddapp.fragment.fragments.AddressBookFragment
 import com.dongdong.ddapp.fragment.fragments.FindFragment
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
 
-    private var lastIndex: Int = -1
+    private var lastIndex: SelectTabType = SelectTabType.UNKNOWN
     private var mFragmentsCreator = mutableListOf<Pair<String, () -> Fragment>>(
         "home" to { HomeFragment() },
         "address" to { AddressBookFragment() },
@@ -27,13 +27,13 @@ class HomeActivity : BaseActivity() {
 
     companion object {
         const val TAG = "HomeActivity"
-        private const val HOME_SELECT_TAB = "HOME_SELECT_TAB"
+        private const val LAUNCH_SELECT_TAB = "SELECT_TAB"
         private const val LAST_INDEX = "last_index"
-        fun launch(context: Context, selectTab: String = Constants.SELECT_TAB_HOME) {
+        fun launch(context: Context, selectTabType: SelectTabType = SelectTabType.UNKNOWN) {
             context.startActivity(Intent(context, HomeActivity::class.java).also {
                 it.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                it.putExtra(HOME_SELECT_TAB, selectTab)
+                it.putExtra(LAUNCH_SELECT_TAB, selectTabType)
             })
         }
     }
@@ -47,8 +47,9 @@ class HomeActivity : BaseActivity() {
 
     private fun initView(savedInstanceState: Bundle?) {
         initBottomNavigation()
-        lastIndex = savedInstanceState?.getInt(LAST_INDEX) ?: -1
-        if (lastIndex == -1) {
+        val saveLastIndex = savedInstanceState?.getSerializable(LAST_INDEX) as SelectTabType?
+        lastIndex = saveLastIndex ?: SelectTabType.UNKNOWN
+        if (lastIndex == SelectTabType.UNKNOWN) {
             initHomeTab()
         } else {
             resetHomeTab(lastIndex)
@@ -57,44 +58,53 @@ class HomeActivity : BaseActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(LAST_INDEX, lastIndex)
+        outState.putSerializable(LAST_INDEX, lastIndex)
     }
 
     private fun initHomeTab() {
-        Log.d(TAG, "initHomeTab tab = ${intent.getStringExtra(HOME_SELECT_TAB)}")
-        when (intent.getStringExtra(HOME_SELECT_TAB)) {
-            Constants.SELECT_TAB_HOME -> {
-                bottomNavigation.selectedItemId = R.id.menu_home
-            }
-            Constants.SELECT_TAB_ADDRESS -> {
+        val launchSelectTab = intent.getSerializableExtra(LAUNCH_SELECT_TAB) as SelectTabType
+        Log.d(TAG, "initHomeTab tab = $launchSelectTab")
+        when (launchSelectTab) {
+            SelectTabType.SELECT_TAB_ADDRESS_BOOK -> {
                 bottomNavigation.selectedItemId = R.id.menu_address_book
             }
-            Constants.SELECT_TAB_FIND -> {
+            SelectTabType.SELECT_TAB_FIND -> {
                 bottomNavigation.selectedItemId = R.id.menu_find
             }
-            Constants.SELECT_TAB_ME -> {
+            SelectTabType.SELECT_TAB_ME -> {
                 bottomNavigation.selectedItemId = R.id.menu_me
+            }
+            else -> {
+                bottomNavigation.selectedItemId = R.id.menu_home
             }
         }
     }
 
-    private fun resetHomeTab(index: Int) {
-        Log.d(TAG, "resetHomeTab tab = $index")
-        when (index) {
-            0 -> { bottomNavigation.selectedItemId = R.id.menu_home }
-            1 -> { bottomNavigation.selectedItemId = R.id.menu_address_book }
-            2 -> { bottomNavigation.selectedItemId = R.id.menu_find }
-            3 -> { bottomNavigation.selectedItemId = R.id.menu_me }
+    private fun resetHomeTab(selectTabType: SelectTabType) {
+        Log.d(TAG, "resetHomeTab tab = $selectTabType")
+        when (selectTabType) {
+            SelectTabType.SELECT_TAB_ADDRESS_BOOK -> {
+                bottomNavigation.selectedItemId = R.id.menu_address_book
+            }
+            SelectTabType.SELECT_TAB_FIND -> {
+                bottomNavigation.selectedItemId = R.id.menu_find
+            }
+            SelectTabType.SELECT_TAB_ME -> {
+                bottomNavigation.selectedItemId = R.id.menu_me
+            }
+            else -> {
+                bottomNavigation.selectedItemId = R.id.menu_home
+            }
         }
     }
 
     private fun initBottomNavigation() {
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.menu_home -> setFragmentPosition(0)
-                R.id.menu_address_book -> setFragmentPosition(1)
-                R.id.menu_find -> setFragmentPosition(2)
-                R.id.menu_me -> setFragmentPosition(3)
+                R.id.menu_home -> setFragmentPosition(SelectTabType.SELECT_TAB_HOME)
+                R.id.menu_address_book -> setFragmentPosition(SelectTabType.SELECT_TAB_ADDRESS_BOOK)
+                R.id.menu_find -> setFragmentPosition(SelectTabType.SELECT_TAB_FIND)
+                R.id.menu_me -> setFragmentPosition(SelectTabType.SELECT_TAB_ME)
                 else -> {
                 }
             }
@@ -105,11 +115,11 @@ class HomeActivity : BaseActivity() {
         bottomNavigation.itemIconTintList = null
     }
 
-    private fun setFragmentPosition(position: Int) {
+    private fun setFragmentPosition(position: SelectTabType) {
         if (lastIndex == position)
             return
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        val (tag, fragmentBuilder) = mFragmentsCreator[position]
+        val (tag, fragmentBuilder) = mFragmentsCreator[position.value]
         var currentFragment = supportFragmentManager.findFragmentByTag(tag)
         Log.d("setFragmentPosition", "set $tag")
         if (currentFragment == null) {
@@ -118,9 +128,9 @@ class HomeActivity : BaseActivity() {
             fragmentTransaction.add(R.id.ll_frameLayout, currentFragment, tag)
         }
 
-        if (lastIndex != -1) {
-            supportFragmentManager.findFragmentByTag(mFragmentsCreator[lastIndex].first)?.let {
-                Log.d("setFragmentPosition", "hide ${mFragmentsCreator[lastIndex].first}")
+        if (lastIndex != SelectTabType.UNKNOWN) {
+            supportFragmentManager.findFragmentByTag(mFragmentsCreator[lastIndex.value].first)?.let {
+                Log.d("setFragmentPosition", "hide ${mFragmentsCreator[lastIndex.value].first}")
                 fragmentTransaction.hide(it)
             }
         }
