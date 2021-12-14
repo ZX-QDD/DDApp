@@ -1,10 +1,10 @@
-package com.dongdong.ddapp.taskChain
+package com.dongdong.ddapp.taskchain
 
 import android.util.Log
-import com.dongdong.ddapp.taskChain.core.Task
-import com.dongdong.ddapp.taskChain.core.TaskChain
-import com.dongdong.ddapp.taskChain.core.pipeThen
-import com.dongdong.ddapp.taskChain.core.then
+import com.dongdong.ddapp.taskchain.core.Task
+import com.dongdong.ddapp.taskchain.core.TaskChain
+import com.dongdong.ddapp.taskchain.core.pipeThen
+import com.dongdong.ddapp.taskchain.core.then
 import rx.Single
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers

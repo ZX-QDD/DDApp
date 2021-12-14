@@ -18,15 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/DDAppTheme">
-        <activity android:name=".taskChain.TaskChainActivity">
+        <activity android:name=".fragment.HomeActivity"></activity>
+        <activity android:name=".dagtask.DAGTaskActivity">
         </activity>
-        <activity android:name=".rxjava.RxjavaActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".taskchain.TaskChainActivity"></activity>
+        <activity android:name=".rxjava.RxjavaActivity"></activity>
         <activity android:name=".widget.activity.TestViewActivity" />
         <activity android:name=".widget.activity.RatingActivity" />
         <activity android:name=".widget.WidgetActivity" />
@@ -41,8 +37,12 @@
         <activity android:name=".recycle.SomeDataListActivity" />
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

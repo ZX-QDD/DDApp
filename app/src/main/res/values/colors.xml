@@ -46,4 +46,7 @@
     <color name="font_gray1">#99EBEBF5</color>
     <color name="bg_gray">#E5E5E5</color>
 
+    <color name="gray_font">#B5B7BC</color>
+    <color name="dft_font">#202B43</color>
+
 </resources>

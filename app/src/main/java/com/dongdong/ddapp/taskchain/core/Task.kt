@@ -1,4 +1,4 @@
-package com.dongdong.ddapp.taskChain.core
+package com.dongdong.ddapp.taskchain.core
 
 import android.util.Log
 import rx.Single

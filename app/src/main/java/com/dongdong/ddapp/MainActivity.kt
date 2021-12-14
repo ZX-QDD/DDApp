@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dongdong.ddapp.baidumap.BaiduMapActivity
 import com.dongdong.ddapp.camreax.CameraActivity
 import com.dongdong.ddapp.dialog.DialogActivity
+import com.dongdong.ddapp.fragment.HomeActivity
 import com.dongdong.ddapp.recycle.SomeDataListActivity
 import com.dongdong.ddapp.widget.WidgetActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_goto_widget.setOnClickListener {
             WidgetActivity.launch(this)
+        }
+
+        btn_goto_home.setOnClickListener {
+            HomeActivity.launch(this, Constants.SELECT_TAB_ME)
         }
     }
 }

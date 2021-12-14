@@ -26,7 +26,7 @@ class RatingActivity : AppCompatActivity() {
         ratingBar.setStepSize(RatingBar.StepSize.Full) //设置每次点击增加一颗星还是半颗星
 
         ratingBar.setOnRatingChangeListener { ratingCount ->
-            Log.d("RatingBar", "RatingBar-Count=$ratingCount")
+            Log.d(TAG, "RatingBar-Count=$ratingCount")
         }
     }
 }
