@@ -7,15 +7,7 @@ import android.view.ViewGroup
 import com.dongdong.ddapp.R
 import com.dongdong.ddapp.base.BaseFragment
 
-class AddressBookFragment : BaseFragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_address_book, container, false)
-    }
+class AddressBookFragment : BaseFragment(R.layout.fragment_address_book) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

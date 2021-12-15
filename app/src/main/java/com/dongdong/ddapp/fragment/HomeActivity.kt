@@ -45,12 +45,17 @@ class HomeActivity : BaseActivity() {
 
     override fun getLayoutId(): Int = R.layout.activity_home
 
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        initHomeTab(intent)
+    }
+
     private fun initView(savedInstanceState: Bundle?) {
         initBottomNavigation()
         val saveLastIndex = savedInstanceState?.getSerializable(LAST_INDEX) as SelectTabType?
         lastIndex = saveLastIndex ?: SelectTabType.UNKNOWN
         if (lastIndex == SelectTabType.UNKNOWN) {
-            initHomeTab()
+            initHomeTab(intent)
         } else {
             resetHomeTab(lastIndex)
         }
@@ -61,8 +66,8 @@ class HomeActivity : BaseActivity() {
         outState.putSerializable(LAST_INDEX, lastIndex)
     }
 
-    private fun initHomeTab() {
-        val launchSelectTab = intent.getSerializableExtra(LAUNCH_SELECT_TAB) as SelectTabType
+    private fun initHomeTab(intent: Intent) {
+        val launchSelectTab = intent.getSerializableExtra(LAUNCH_SELECT_TAB) as SelectTabType?
         Log.d(TAG, "initHomeTab tab = $launchSelectTab")
         when (launchSelectTab) {
             SelectTabType.SELECT_TAB_ADDRESS_BOOK -> {

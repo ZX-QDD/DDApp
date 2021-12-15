@@ -1,5 +1,7 @@
 package com.dongdong.ddapp
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.dongdong.ddapp.baidumap.BaiduMapActivity
@@ -11,6 +13,14 @@ import com.dongdong.ddapp.widget.WidgetActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        const val TAG = "MainActivity"
+        fun launch(context: Context) {
+            context.startActivity(Intent(context, MainActivity::class.java))
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

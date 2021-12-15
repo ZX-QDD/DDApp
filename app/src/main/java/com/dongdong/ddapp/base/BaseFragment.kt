@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 
 open class BaseFragment() : Fragment() {
 
+    val TAG = "BaseFragment"
+
     @LayoutRes
     private var contentLayoutId: Int? = null
 
@@ -36,11 +38,11 @@ open class BaseFragment() : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d("BaseFragment", " ${this.javaClass.simpleName} onAttach")
+        Log.d(TAG, " ${this.javaClass.simpleName} ==> onAttach")
     }
 
     override fun onDetach() {
         super.onDetach()
-        Log.d("BaseFragment", "${this.javaClass.simpleName} onDetach")
+        Log.d(TAG, "${this.javaClass.simpleName} ==> onDetach")
     }
 }

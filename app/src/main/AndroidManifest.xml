@@ -20,7 +20,9 @@
         android:theme="@style/DDAppTheme">
         <activity
             android:name=".fragment.HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light"></activity>
+            android:theme="@style/Theme.AppCompat.Light">
+
+        </activity>
         <activity android:name=".dagtask.DAGTaskActivity">
         </activity>
         <activity android:name=".taskchain.TaskChainActivity"></activity>

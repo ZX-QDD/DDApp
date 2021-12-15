@@ -7,51 +7,61 @@ import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity  : AppCompatActivity() {
 
+    val TAG = "BaseActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
-        Log.i("BaseActivity", "onCreate ==> $this")
+        initData()
+        initView()
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onCreate")
     }
 
     abstract fun getLayoutId(): Int
 
+    open fun initView() {
+    }
+
+    open fun initData() {
+    }
+
     override fun onStart() {
         super.onStart()
-        Log.i("BaseActivity", "onStart ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onStart")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.i("BaseActivity", "onRestart ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onRestart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i("BaseActivity", "onResume ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("BaseActivity", "onPause ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("BaseActivity", "onStop ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("BaseActivity", "onDestroy ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onDestroy")
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        Log.i("BaseActivity", "onNewIntent ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onNewIntent")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.i("BaseActivity", "onSaveInstanceState ==> $this")
+        Log.i(TAG, "${this.javaClass.simpleName} ==> onSaveInstanceState")
     }
 }
