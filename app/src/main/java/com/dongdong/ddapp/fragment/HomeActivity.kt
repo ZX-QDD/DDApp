@@ -27,7 +27,7 @@ class HomeActivity : BaseActivity() {
 
     companion object {
         const val TAG = "HomeActivity"
-        private const val LAUNCH_SELECT_TAB = "SELECT_TAB"
+        private const val LAUNCH_SELECT_TAB = "launch_select_tab"
         private const val LAST_INDEX = "last_index"
         fun launch(context: Context, selectTabType: SelectTabType = SelectTabType.UNKNOWN) {
             context.startActivity(Intent(context, HomeActivity::class.java).also {
