@@ -1,7 +1,6 @@
-package com.dongdong.ddapp.fragment.fragments
+package com.dongdong.ddapp.home.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dongdong.ddapp.R

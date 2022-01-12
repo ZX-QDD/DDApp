@@ -1,4 +1,4 @@
-package com.dongdong.ddapp.fragment
+package com.dongdong.ddapp.home
 
 import android.content.Context
 import android.content.Intent
@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import com.dongdong.ddapp.R
 import com.dongdong.ddapp.SelectTabType
 import com.dongdong.ddapp.base.BaseActivity
-import com.dongdong.ddapp.fragment.fragments.AddressBookFragment
-import com.dongdong.ddapp.fragment.fragments.FindFragment
-import com.dongdong.ddapp.fragment.fragments.HomeFragment
-import com.dongdong.ddapp.fragment.fragments.MeFragment
+import com.dongdong.ddapp.home.fragments.AddressBookFragment
+import com.dongdong.ddapp.home.fragments.FindFragment
+import com.dongdong.ddapp.home.fragments.HomeFragment
+import com.dongdong.ddapp.home.fragments.MeFragment
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_home.*
 

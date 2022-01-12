@@ -16,4 +16,13 @@
         <item name="android:windowMinWidthMinor">100%</item>
     </style>
 
+    <style name="bklistDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_feedback_btn_bg</item>//设置背景
+        <item name="android:windowFrame">@null</item>//设置边框
+        <item name="android:backgroundDimEnabled">true</item>//设置是否背景模糊
+        <item name="android:windowIsTranslucent">true</item>//设置半透明
+        <item name="android:windowNoTitle">true</item>//设置无标题
+        <item name="android:windowFullscreen">false</item>//设置全屏
+    </style>
+
 </resources>

@@ -18,15 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/DDAppTheme">
+        <activity android:name=".home.NormalDialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/bklistDialog">
+        </activity>
         <activity
-            android:name=".fragment.HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light">
-
-        </activity>
-        <activity android:name=".dagtask.DAGTaskActivity">
-        </activity>
-        <activity android:name=".taskchain.TaskChainActivity"></activity>
-        <activity android:name=".rxjava.RxjavaActivity"></activity>
+            android:name=".home.HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light"></activity>
+        <activity android:name=".dagtask.DAGTaskActivity"></activity>
+        <activity android:name=".taskchain.TaskChainActivity" />
+        <activity android:name=".rxjava.RxjavaActivity" />
         <activity android:name=".widget.activity.TestViewActivity" />
         <activity android:name=".widget.activity.RatingActivity" />
         <activity android:name=".widget.WidgetActivity" />

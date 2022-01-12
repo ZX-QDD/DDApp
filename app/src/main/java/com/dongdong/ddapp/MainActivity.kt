@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dongdong.ddapp.baidumap.BaiduMapActivity
 import com.dongdong.ddapp.camreax.CameraActivity
 import com.dongdong.ddapp.dialog.DialogActivity
-import com.dongdong.ddapp.fragment.HomeActivity
+import com.dongdong.ddapp.home.HomeActivity
 import com.dongdong.ddapp.recycle.SomeDataListActivity
 import com.dongdong.ddapp.widget.WidgetActivity
 import kotlinx.android.synthetic.main.activity_main.*

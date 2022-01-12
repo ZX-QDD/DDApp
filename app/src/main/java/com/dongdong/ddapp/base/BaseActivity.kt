@@ -7,14 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity  : AppCompatActivity() {
 
-    val TAG = "BaseActivity"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         initData()
         initView()
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onCreate")
+        lifecycleLog("onCreate")
     }
 
     abstract fun getLayoutId(): Int
@@ -27,41 +25,50 @@ abstract class BaseActivity  : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onStart")
+        lifecycleLog("onStart")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onRestart")
+        lifecycleLog("onRestart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onResume")
+        lifecycleLog("onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onPause")
+        lifecycleLog("onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onStop")
+        lifecycleLog("onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onDestroy")
+        lifecycleLog("onDestroy")
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onNewIntent")
+        lifecycleLog("onNewIntent")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.i(TAG, "${this.javaClass.simpleName} ==> onSaveInstanceState")
+        lifecycleLog("onSaveInstanceState")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        lifecycleLog("onRestoreInstanceState")
+    }
+
+    fun lifecycleLog(lifecycle: String) {
+        Log.i("BaseActivity", "${this.javaClass.simpleName} ==> $lifecycle")
     }
 }
